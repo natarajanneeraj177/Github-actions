@@ -1,0 +1,46 @@
+name: End to End CI/CD for JAVA application with Maven, sonar, K8's integraton 
+
+on: 
+  push:
+    branches:
+      - main 
+
+env:
+  KUBECONFIG: ${{ secrent.KUBECONFIG }}
+  SOANR_TOKEN: ${{ secrets.SONAR.TKN }}
+
+jobs:
+  build:
+    run-on: ubuntu-latest
+
+steps:
+- name: checkout code
+  uses: actions/setup-java@V2
+
+- name: Java JDK setup 
+  uses: actions/setup-java@V2
+  with:
+    java -version 12
+
+- name: maven target 
+  run: mvn clean install
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+    
+
